@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Josefin+Sans');
+
 body {
 	line-height: 1.5rem;
+}
+
+.site-title {
+	font-family: 'Baloo Bhaijaan', cursive;
+	font-size: 40px;
+	color: #303534; 
+}
+
+header .jam-shopping-cart {
+	font-size: 32px;
+    vertical-align: middle;
+}
+
+.navbar, header, h1 {
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.nav-item {
+	margin-right: 2rem;
 }

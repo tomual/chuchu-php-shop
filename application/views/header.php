@@ -22,45 +22,51 @@
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="<?php echo base_url('js/vendor/modernizr-2.7.1.min.js') ?>"></script>
     <link href="<?php echo base_url('css/normalize.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('css/main.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/jam.min.css') ?>" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Title</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url() ?>">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('page') ?>">Page</a>
-                </li>
-            </ul>
-            <div class="my-2 my-lg-0">
-                <ul class="navbar-nav mr-auto">
+    <header class="container my-5">
+        <div class="row">
+            <div class="col">
+                <div class="site-title float-left"><a href="<?php echo base_url() ?>">chuchu</a></div>
+                <div class="float-right header-nav">
                     <?php if ($this->user): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('settings/edit') ?>"><?php echo $this->user->username ?></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('user/logout') ?>">Log Out</a>
-                        </li>
+                        <a class="p-2 small" href="<?php echo base_url('settings/edit') ?>"><?php echo $this->user->username ?></a>
+                        <a class="p-2 small" href="<?php echo base_url('user/logout') ?>">Log Out</a>
                     <?php else: ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('user/login') ?>">Log In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('user/signup') ?>">Sign Up</a>
-                        </li>
+                        <a class="p-2 small" href="<?php echo base_url('user/login') ?>">Log In</a>
+                        <a class="p-2 small" href="<?php echo base_url('user/signup') ?>">Sign Up</a>
                     <?php endif ?>
-                </ul>
+                    <a class="p-2 jam jam-shopping-cart" href="<?php echo base_url('cart') ?>"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="<?php echo base_url('shop') ?>">Browse <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo base_url('page') ?>">Clothing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo base_url('page') ?>">Accessories</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
