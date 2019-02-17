@@ -91,3 +91,34 @@ header .jam-shopping-cart {
     width: 40px;
     display: none;
 }
+
+.product .btn {
+    border-radius: 0;
+    border: 2px solid #343a40;
+    font-size: 18px;
+    padding: 10px 15px;
+}
+
+.product .btn-primary {
+	font-family: 'Josefin Sans', sans-serif;
+	width: 75%;
+	background: #343a40;
+}
+
+.product .btn-secondary {
+	background: #FFF;
+	color: #343a40;
+}
+
+.product h1 {
+	font-size: 24px;
+	margin-bottom: 2rem;
+}
+
+.product ul {
+	padding: 0;
+}
+
+.product li {
+	list-style-type: none;
+}
