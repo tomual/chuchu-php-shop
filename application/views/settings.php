@@ -1,4 +1,5 @@
 <?php $this->load->view('header') ?>
+<div class="row">
 <div class="col-lg-4 offset-lg-4">
     <h1>Settings</h1>
     <?php alerts() ?>
@@ -27,5 +28,6 @@
             <input type="submit" value="Save" class="btn btn-primary">
         </div>
     </form>
+</div>
 </div>
 <?php $this->load->view('footer') ?>

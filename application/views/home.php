@@ -1,4 +1,5 @@
 <?php $this->load->view('header') ?>
+<div class="row">
 <div class="col">
 	<h1 class="my-5">CuteIgniter</h1>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -41,5 +42,6 @@
 			<input type="submit" value="Submit" class="btn btn-primary">
 		</div>
 	</form>
+</div>
 </div>
 <?php $this->load->view('footer') ?>

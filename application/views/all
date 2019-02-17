@@ -1,0 +1,10 @@
+<?php $this->load->view('header') ?>
+<div class="row">
+<div class="col">
+	<h1 class="my-5">All Products</h1>
+	<?php foreach ($products as $product): ?>
+		<?php echo $product->name ?>
+	<?php endforeach ?>
+</div>
+</div>
+<?php $this->load->view('footer') ?>
