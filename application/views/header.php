@@ -31,7 +31,7 @@
     <header class="container my-5">
         <div class="row">
             <div class="col">
-                <div class="site-title float-left"><a href="<?php echo base_url() ?>">chuchu</a></div>
+                <div class="site-title float-left"><a href="<?php echo base_url() ?>"><i class="jam jam-snowflake"></i> chuchu</a></div>
                 <div class="float-right header-nav">
                     <?php if ($this->user): ?>
                         <a class="p-2 small" href="<?php echo base_url('settings/edit') ?>"><?php echo $this->user->username ?></a>

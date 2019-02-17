@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-define('PER_PAGE', 8);
+define('PER_PAGE', 12);
 
 /*
 |--------------------------------------------------------------------------
