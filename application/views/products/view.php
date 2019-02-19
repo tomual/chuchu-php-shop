@@ -28,8 +28,11 @@
 		<h1><?php echo $product->name ?></h1>
 		<h2>$<?php echo $product->price ?></h2>
 		<div class="actions my-5">
-			<a class="btn btn-primary" href="<?php echo base_url("cart/add/{$product->id}") ?>">Add to Cart</a>
-			<a class="btn btn-secondary" href="<?php echo base_url("cart/add/{$product->id}") ?>"><i class="jam jam-star"></i></a>
+			<form method="post" action="<?php echo base_url('cart/add') ?>">
+				<input type="hidden" name="product_id" value="<?php echo $product->id ?>">
+				<input type="submit" class="btn btn-primary" value="Add to Cart">
+				<a class="btn btn-secondary" href="<?php echo base_url("cart/add/{$product->id}") ?>"><i class="jam jam-star"></i></a>
+			</form>
 		</div>
 		<table class="table table-sm small">
 			<?php $detail_headers = array('material', 'size', 'color', 'size', 'delivery', 'return') ?>

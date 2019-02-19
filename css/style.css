@@ -122,3 +122,11 @@ header .jam-shopping-cart {
 .product li {
 	list-style-type: none;
 }
+
+.cart img {
+    width: 100px;
+}
+
+.cart td {
+    vertical-align: middle;
+}

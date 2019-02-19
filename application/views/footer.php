@@ -1,4 +1,15 @@
 		</main>
+		<footer>
+			<div class="text-muted small text-center p-5">
+				&copy; 2019 Company Name
+				<span class="mx-2">|</span>
+				<a href="">Privacy Policy</a>
+				<span class="mx-2">|</span>
+				<a href="">Terms & Conditions</a>
+				<span class="mx-2">|</span>
+				<a href="">Contact Us</a>
+			</div>
+		</footer>
 		<script src="<?php echo base_url('js/vendor/jquery-2.1.0.min.js') ?>"></script>
 		<script src="<?php echo base_url('js/helper.js') ?>"></script>
 		<script src="<?php echo base_url('js/main.js') ?>"></script>
