@@ -21,6 +21,6 @@
 			</tr>
 		<?php endforeach ?>
 	</table>
-	<a href="<?php echo base_url('checkout') ?>" class="btn btn-primary">Checkout</a>
+	<a href="<?php echo base_url('checkout/payment') ?>" class="btn btn-primary">Checkout</a>
 </div>
 <?php $this->load->view('footer') ?>

@@ -26,6 +26,7 @@
     <link href="<?php echo base_url('css/main.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('css/jam.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/stripe.css') ?>" rel="stylesheet">
 </head>
 <body>
     <header class="container my-5">
