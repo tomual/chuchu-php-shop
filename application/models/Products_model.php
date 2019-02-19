@@ -26,4 +26,10 @@ class Products_model extends CI_Model {
 
         return $result;
     }
+
+    public function fetch_products() {
+        \Stripe\Stripe::setApiKey("sk_test_2sN94fTZ5N8sC2y2oB6AjOru");
+        $products = \Stripe\Product::all(["limit" => 3]);
+        return $products;
+    }
 }

@@ -7,7 +7,10 @@ class Products extends MY_Controller {
 	{
 		if (!empty($params[0])) {
 			$this->view($params[0]);
+			return;
 		}
+
+		$this->$method();
 	}
 
 	public function view($id)
@@ -16,5 +19,12 @@ class Products extends MY_Controller {
 		$details = $this->products_model->get_details($id);
 
 		$this->load->view('products/view', compact('product', 'details'));
+	}
+
+	public function sync()
+	{
+		$products = $this->products_model->fetch_products();
+		echo "<pre>";
+		print_r($products);
 	}
 }
