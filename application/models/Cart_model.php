@@ -20,6 +20,7 @@ class Cart_model extends CI_Model {
         $product_id = $data['product_id'];
         if (!$item = $this->in_cart($session_id, $product_id)) {
             $this->db->insert('cart', $data);
+            $this->add_cart_count(1);
             return $this->db->insert_id();
         } else {
             unset($item->id);
@@ -40,5 +41,15 @@ class Cart_model extends CI_Model {
         $results = $this->db->get()->first_row();
 
         return $results ?? false;
+    }
+
+    public function add_cart_count($add)
+    {
+        $cart_count = $this->session->userdata('cart_count');
+        if ($cart_count) {
+            $this->session->set_userdata('cart_count', $cart_count + $add);
+        } else {
+            $this->session->set_userdata('cart_count', 1);
+        }
     }
 }

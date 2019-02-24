@@ -10,6 +10,10 @@ class Cart extends MY_Controller {
         $this->load->library('form_validation');
     }
 
+    public function index() {
+    	$this->view();
+    }
+
 	public function add()
 	{
 		$this->form_validation->set_rules('product_id', 'Product ID', 'required');
@@ -20,7 +24,7 @@ class Cart extends MY_Controller {
 				'product_id' => $this->input->post('product_id')
 			);
 			$cart_id = $this->cart_model->add($data);
-			$this->view();
+			redirect('cart');
 		} else {
 			echo json_encode($this->form_validation->error_array());
 		}

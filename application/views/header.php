@@ -41,7 +41,7 @@
                         <a class="p-2 small" href="<?php echo base_url('user/login') ?>">Log In</a>
                         <a class="p-2 small" href="<?php echo base_url('user/signup') ?>">Sign Up</a>
                     <?php endif ?>
-                    <a class="p-2 jam jam-shopping-cart" href="<?php echo base_url('cart') ?>"></a>
+                    <a class="p-2 jam jam-shopping-cart" href="<?php echo base_url('cart') ?>"><?php echo $this->session->userdata('cart_count') ?></a>
                 </div>
             </div>
         </div>
