@@ -19,17 +19,21 @@ class Products_model extends CI_Model {
         return $result;
     }
 
-    public function get_details($id) {
-        $this->db->where('product_id', $id);
-        $this->db->from('product_details');
-        $result = $this->db->get()->first_row();
-
-        return $result;
+    public function fetch_from_stripe() {
+        \Stripe\Stripe::setApiKey("sk_test_2sN94fTZ5N8sC2y2oB6AjOru");
+        $products = \Stripe\Product::all(["limit" => 100]);
+        return $products;
     }
 
-    public function fetch_products() {
-        \Stripe\Stripe::setApiKey("sk_test_2sN94fTZ5N8sC2y2oB6AjOru");
-        $products = \Stripe\Product::all(["limit" => 3]);
-        return $products;
+    public function add($data)
+    {
+        $this->db->insert('products', $data);
+        return $this->db->insert_id();
+    }
+
+    public function update($id, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('products', $data);
     }
 }
