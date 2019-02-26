@@ -10,23 +10,16 @@
 <div class="row my-5 product">
 	<div class="col-lg-6">
 		<ul id="imageGallery">
-			<li data-thumb="<?php echo base_url("img/products/{$product->thumb}") ?>" data-src="<?php echo base_url("img/products/{$product->thumb}") ?>">
-				<img src="<?php echo base_url("img/products/{$product->thumb}") ?>" />
-			</li>
-			<li data-thumb="<?php echo base_url("img/products/{$product->thumb}") ?>" data-src="<?php echo base_url("img/products/{$product->thumb}") ?>">
-				<img src="<?php echo base_url("img/products/{$product->thumb}") ?>" />
-			</li>
-			<li data-thumb="<?php echo base_url("img/products/{$product->thumb}") ?>" data-src="<?php echo base_url("img/products/{$product->thumb}") ?>">
-				<img src="<?php echo base_url("img/products/{$product->thumb}") ?>" />
-			</li>
-			<li data-thumb="<?php echo base_url("img/products/{$product->thumb}") ?>" data-src="<?php echo base_url("img/products/{$product->thumb}") ?>">
-				<img src="<?php echo base_url("img/products/{$product->thumb}") ?>" />
-			</li>
+			<?php foreach ($product->images as $image): ?>
+				<li data-thumb="<?php echo $image ?>" data-src="<?php echo $image ?>">
+					<img src="<?php echo $image ?>" />
+				</li>
+			<?php endforeach ?>
 		</ul>
 	</div>
 	<div class="col px-5">
 		<h1><?php echo $product->name ?></h1>
-		<h2>$<?php echo $product->price ?></h2>
+		<h2>$<?php echo number_format($product->price / 100, 2) ?></h2>
 		<div class="actions my-5">
 			<form method="post" action="<?php echo base_url('cart/add') ?>">
 				<input type="hidden" name="product_id" value="<?php echo $product->id ?>">

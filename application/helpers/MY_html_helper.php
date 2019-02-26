@@ -32,3 +32,9 @@ function cart_count_badge() {
         return '<span class="badge badge-pill badge-danger cart-badge">' . $cart_count . '</span>';
     }
 }
+
+function pretty_print($content) {
+    echo "<pre>";
+    print_r($content);
+    echo "</pre>";
+}

@@ -16,7 +16,6 @@ class Products extends MY_Controller {
 	public function view($id)
 	{
 		$product = $this->products_model->get($id);
-		$details = $this->products_model->get_details($id);
 
 		$this->load->view('products/view', compact('product', 'details'));
 	}
@@ -73,6 +72,7 @@ class Products extends MY_Controller {
 					'inventory_quantity' => $stripe_sku->inventory->quantity,
 					'inventory_type' => $stripe_sku->inventory->type,
 					'inventory_value' => $stripe_sku->inventory->value,
+					'image' => $stripe_sku->image,
 					'created' => $stripe_sku->created,
 					'updated' => $stripe_sku->updated,
 				);
@@ -86,6 +86,7 @@ class Products extends MY_Controller {
 				'inventory_quantity' => $stripe_sku->inventory->quantity,
 				'inventory_type' => $stripe_sku->inventory->type,
 				'inventory_value' => $stripe_sku->inventory->value,
+					'image' => $stripe_sku->image,
 				'created' => $stripe_sku->created,
 				'updated' => $stripe_sku->updated,
 			);

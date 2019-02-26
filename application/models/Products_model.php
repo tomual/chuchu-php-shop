@@ -11,12 +11,26 @@ class Products_model extends CI_Model {
         return $results;
     }
 
-    public function get($id) {
-        $this->db->where('id', $id);
+    public function get_browse() {
+        $this->db->select('products.*, skus.price, skus.image');
+        $this->db->order_by('products.id');
+        $this->db->where('display_sku IS NOT NULL');
         $this->db->from('products');
-        $result = $this->db->get()->first_row();
+        $this->db->join('skus', 'products.display_sku = skus.id');
+        $results = $this->db->get()->result();
 
-        return $result;
+        return $results;
+    }
+
+    public function get($id) {
+        $this->db->select('products.*, skus.price, skus.image');
+        $this->db->where('products.id', $id);
+        $this->db->from('products');
+        $this->db->join('skus', 'products.display_sku = skus.id');
+        $product = $this->db->get()->first_row();
+        $product->skus = $this->skus_model->get_by_product($id);
+        $product->images = json_decode($product->images ?? null);
+        return $product;
     }
 
     public function fetch_from_stripe() {

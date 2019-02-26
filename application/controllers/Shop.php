@@ -14,7 +14,7 @@ class Shop extends MY_Controller {
 
 	public function home()
 	{
-		$products = $this->products_model->get_all();
+		$products = $this->products_model->get_browse();
         $pagination = array('total' => count($products), 'limit' => PER_PAGE);
         $products = $this->paginate($products);
 
