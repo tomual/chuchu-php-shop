@@ -16,12 +16,12 @@ class Cart extends MY_Controller {
 
 	public function add()
 	{
-		$this->form_validation->set_rules('product_id', 'Product ID', 'required');
+		$this->form_validation->set_rules('sku_id', 'SKU', 'required');
 
 		if ($this->form_validation->run() !== FALSE) {
 			$data = array(
 				'session_id' => $this->session->session_id,
-				'product_id' => $this->input->post('product_id')
+				'sku_id' => $this->input->post('sku_id')
 			);
 			$cart_id = $this->cart_model->add($data);
 			redirect('cart');
@@ -32,7 +32,7 @@ class Cart extends MY_Controller {
 
 	public function view() 
 	{
-		$products = $this->cart_model->get();
-		$this->load->view('cart/view', compact('products'));
+		$items = $this->cart_model->get();
+		$this->load->view('cart/view', compact('items'));
 	}
 }

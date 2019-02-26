@@ -24,7 +24,6 @@ class Products extends MY_Controller {
 	{
 		$skus = $this->skus_model->fetch_from_stripe();
 		$products = $this->products_model->fetch_from_stripe();
-		echo "<pre>";
 		foreach ($skus['data'] as $index => $stripe_sku) {
 			$sku = $this->skus_model->get($stripe_sku->id);
 			$this->update_or_add_sku($sku, $stripe_sku);

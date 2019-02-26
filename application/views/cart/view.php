@@ -12,11 +12,11 @@
 			<th>Quantity</th>
 			<th></th>
 		</tr>
-		<?php foreach ($products as $product): ?>
+		<?php foreach ($items as $item): ?>
 			<tr>
-				<td><img src="<?php echo base_url("img/products/{$product->thumb}") ?>"></td>
-				<td><?php echo $product->name ?></td>
-				<td><?php echo $product->quantity ?></td>
+				<td><img src="<?php echo $item->image ?>"></td>
+				<td><?php echo $item->name ?></td>
+				<td><?php echo $item->quantity ?></td>
 				<td><form><input type="submit" name="remove" value="Remove" class="btn btn-secondary"></form></td>
 			</tr>
 		<?php endforeach ?>

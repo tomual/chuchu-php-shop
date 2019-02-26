@@ -9,7 +9,8 @@ class Cart_model extends CI_Model {
         }
         $this->db->where('session_id', $session_id);
         $this->db->from('cart');
-        $this->db->join('products', 'cart.product_id = products.id', 'left');
+        $this->db->join('skus', 'cart.sku_id = skus.id', 'left');
+        $this->db->join('products', 'products.id = skus.product', 'left');
         $results = $this->db->get()->result();
 
         return $results;
@@ -17,8 +18,8 @@ class Cart_model extends CI_Model {
 
     public function add($data) {
         $session_id = $data['session_id'];
-        $product_id = $data['product_id'];
-        if (!$item = $this->in_cart($session_id, $product_id)) {
+        $sku_id = $data['sku_id'];
+        if (!$item = $this->in_cart($session_id, $sku_id)) {
             $this->db->insert('cart', $data);
             $this->add_cart_count(1);
             return $this->db->insert_id();
@@ -26,17 +27,17 @@ class Cart_model extends CI_Model {
             unset($item->id);
             $item->quantity++;
             $this->db->where('session_id', $session_id);
-            $this->db->where('product_id', $product_id);
+            $this->db->where('sku_id', $sku_id);
             $this->db->update('cart', $item);
         }
     }
 
-    public function in_cart($session_id, $product_id) {
+    public function in_cart($session_id, $sku_id) {
         if ($session_id) {
             $session_id = $this->session->session_id;
         }
         $this->db->where('session_id', $session_id);
-        $this->db->where('product_id', $product_id);
+        $this->db->where('sku_id', $sku_id);
         $this->db->from('cart');
         $results = $this->db->get()->first_row();
 

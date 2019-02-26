@@ -22,7 +22,7 @@
 		<h2>$<?php echo number_format($product->price / 100, 2) ?></h2>
 		<div class="actions my-5">
 			<form method="post" action="<?php echo base_url('cart/add') ?>">
-				<input type="hidden" name="product_id" value="<?php echo $product->id ?>">
+				<input type="hidden" name="sku_id" value="<?php echo $product->display_sku ?>">
 				<input type="submit" class="btn btn-primary" value="Add to Cart">
 				<a class="btn btn-secondary" href="<?php echo base_url("cart/add/{$product->id}") ?>"><i class="jam jam-star"></i></a>
 			</form>

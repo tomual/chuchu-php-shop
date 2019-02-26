@@ -11,7 +11,6 @@ class Checkout extends MY_Controller {
 
 	public function payment()
 	{
-
 		$this->load->view('checkout/form');
 	}
 
