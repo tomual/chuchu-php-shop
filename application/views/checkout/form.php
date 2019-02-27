@@ -7,13 +7,10 @@
 </div>
 <div class="row">
 	<div class="col">
-		<form action="<?php echo base_url('checkout/process') ?>" method="post" id="payment-form" class="form">
+		<form action="<?php echo base_url('checkout/form') ?>" method="post" id="payment-form" class="form">
 			<div class="form-row">
-				<label for="card-element">Credit or debit card</label>
-				<div id="card-element"></div>
-				<div id="card-errors" role="alert"></div>
 			</div>
-			<button>Submit Payment</button>
+			<button>Continue</button>
 		</form>
 	</div>
 </div>
