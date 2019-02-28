@@ -33,6 +33,7 @@ class Cart extends MY_Controller {
 	public function view() 
 	{
 		$items = $this->cart_model->get();
-		$this->load->view('cart/view', compact('items'));
+		$total = array_sum(array_column($items, 'price')); 
+		$this->load->view('cart/view', compact('items', 'total'));
 	}
 }

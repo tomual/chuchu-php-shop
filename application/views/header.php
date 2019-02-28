@@ -23,10 +23,11 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url('css/normalize.css') ?>" rel="stylesheet">
-    <link href="<?php echo base_url('css/main.css') ?>" rel="stylesheet">
-    <link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('css/jam.min.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('css/stripe.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/bootstrap-override.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/main.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('css/style.css') ?>" rel="stylesheet">
 </head>
 <body>
     <header class="container my-5">
