@@ -26,10 +26,12 @@ class Products_model extends CI_Model {
         $this->db->select('products.*, skus.price, skus.image');
         $this->db->where('products.id', $id);
         $this->db->from('products');
-        $this->db->join('skus', 'products.display_sku = skus.id');
+        $this->db->join('skus', 'products.display_sku = skus.id', 'left');
         $product = $this->db->get()->first_row();
-        $product->skus = $this->skus_model->get_by_product($id);
-        $product->images = json_decode($product->images ?? null);
+        if ($product) {
+            $product->skus = $this->skus_model->get_by_product($id);
+            $product->images = json_decode($product->images ?? null);
+        }
         return $product;
     }
 
