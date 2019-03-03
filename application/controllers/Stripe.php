@@ -81,7 +81,7 @@ class Stripe extends MY_Controller {
 
 	public function populate()
 	{
-		\Stripe\Stripe::setApiKey("sk_test_2sN94fTZ5N8sC2y2oB6AjOru");
+		\Stripe\Stripe::setApiKey($this->config->item('stripe_api_key'));
 		$products = [
 			[
 				"name" => 'Cartoon Print Sandal',

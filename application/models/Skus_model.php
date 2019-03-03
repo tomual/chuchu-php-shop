@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Skus_model extends CI_Model {
 
     public function fetch_from_stripe() {
-        \Stripe\Stripe::setApiKey("sk_test_2sN94fTZ5N8sC2y2oB6AjOru");
+        \Stripe\Stripe::setApiKey($this->config->item('stripe_api_key'));
         $skus = \Stripe\SKU::all(["limit" => 100]);
         return $skus;
     }

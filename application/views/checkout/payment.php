@@ -7,6 +7,7 @@
 </div>
 <div class="row">
 	<div class="col-8">
+		<?php alerts() ?>
 		<table class="table">
 			<tr>
 				<th>Email</th>

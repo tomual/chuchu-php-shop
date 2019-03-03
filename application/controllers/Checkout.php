@@ -8,7 +8,7 @@ class Checkout extends MY_Controller {
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('cart_model');
-		\Stripe\Stripe::setApiKey("sk_test_2sN94fTZ5N8sC2y2oB6AjOru");
+		\Stripe\Stripe::setApiKey($this->config->item('stripe_api_key'));
     }
 
 	public function form()
@@ -32,21 +32,29 @@ class Checkout extends MY_Controller {
 						'quantity' => $item->quantity
 					);
 				}
-				$order = \Stripe\Order::create([
-				    'currency' => 'aud',
-				    'email' => $this->input->post('email'),
-				    'items' => $items,
-				    'shipping' =>  [
-				        'name' => $this->input->post('name'),
-				        'address' => [
-				            'line1' => $this->input->post('line1'),
-				            'city' => $this->input->post('city'),
-				            'state' => $this->input->post('state'),
-				            'postal_code' => $this->input->post('postal_code'),
-				            'country' => 'AU',
-				        ],
-				    ],
-				]);
+				try {
+					$order = \Stripe\Order::create([
+					    'currency' => 'aud',
+					    'email' => $this->input->post('email'),
+					    'items' => $items,
+					    'shipping' =>  [
+					        'name' => $this->input->post('name'),
+					        'address' => [
+					            'line1' => $this->input->post('line1'),
+					            'city' => $this->input->post('city'),
+					            'state' => $this->input->post('state'),
+					            'postal_code' => $this->input->post('postal_code'),
+					            'country' => 'AU',
+					        ],
+					    ],
+					]);
+				} catch(\Stripe\Error\Base $e) {
+					$body = $e->getJsonBody();
+				  	$error = $body['error'];
+				  	$this->session->set_flashdata('error', $error['message']);
+					$this->load->view('checkout/form', compact('cart', 'total'));
+				  	return;
+				}
 				$this->session->set_userdata('order', $order->id);
 				redirect('checkout/payment', compact('order'));
 			}
@@ -63,13 +71,22 @@ class Checkout extends MY_Controller {
 			$this->form_validation->set_rules('stripeToken', 'Payment Token', 'required');
 			if ($this->form_validation->run() !== FALSE) {
 				$stripe_token = $this->input->post('stripeToken');
-				$payment = $order->pay([
-					"source" => $stripe_token
-				]);
+				try {
+					$payment = $order->pay([
+						"source" => $stripe_token
+					]);
+				} catch(\Stripe\Error\Base $e) {
+					$body = $e->getJsonBody();
+				  	$error = $body['error'];
+				  	$this->session->set_flashdata('error', $error['message']);
+					$this->load->view('checkout/payment', compact('order'));
+				  	return;
+				}
 
 				$charge = \Stripe\Charge::retrieve($payment->charge);
 				$this->receipt($charge);
 				return;
+
 			} else {
 				echo json_encode($this->form_validation->error_array());
 			}
