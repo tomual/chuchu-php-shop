@@ -523,3 +523,5 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 $config['stripe_api_key'] = 'sk_test_2sN94fTZ5N8sC2y2oB6AjOru';
+$config['admin_email'] = 'test@mail.com';
+$config['site_name'] = 'chuchu';
