@@ -35,13 +35,13 @@
             <div class="col">
                 <div class="site-title float-left"><a href="<?php echo base_url() ?>"><i class="jam jam-snowflake"></i> chuchu</a></div>
                 <div class="float-right header-nav">
-                    <?php if ($this->user): ?>
+                    <!-- <?php if ($this->user): ?>
                         <a class="p-2 small" href="<?php echo base_url('settings/edit') ?>"><?php echo $this->user->username ?></a>
                         <a class="p-2 small" href="<?php echo base_url('user/logout') ?>">Log Out</a>
                     <?php else: ?>
                         <a class="p-2 small" href="<?php echo base_url('user/login') ?>">Log In</a>
                         <a class="p-2 small" href="<?php echo base_url('user/signup') ?>">Sign Up</a>
-                    <?php endif ?>
+                    <?php endif ?> -->
                     <a class="p-2 jam jam-shopping-cart" href="<?php echo base_url('cart') ?>"></a>
                     <?php echo cart_count_badge() ?>
                 </div>
@@ -58,14 +58,14 @@
 
                     <div class="collapse navbar-collapse" id="navbar">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="<?php echo base_url('shop') ?>">Browse <span class="sr-only">(current)</span></a>
+                            <li class="nav-item <?php echo $this->uri->segment(1) == "" ? 'active' : '' ?>">
+                                <a class="nav-link" href="<?php echo base_url() ?>">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url('page') ?>">Clothing</a>
+                            <li class="nav-item <?php echo ( $this->uri->segment(1) == "shop" || $this->uri->segment(1) == "products" ) ? 'active' : '' ?>">
+                                <a class="nav-link" href="<?php echo base_url('shop') ?>">Store</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url('page') ?>">Accessories</a>
+                            <li class="nav-item <?php echo $this->uri->segment(1) == "faq" ? 'active' : '' ?>">
+                                <a class="nav-link" href="<?php echo base_url('faq') ?>">FAQ</a>
                             </li>
                         </ul>
                     </div>
