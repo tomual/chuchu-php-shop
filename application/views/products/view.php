@@ -1,9 +1,9 @@
 <?php $this->load->view('header') ?>
 <div class="row my-5 text-secondary">
 	<div class="col">
-		<a href="" class="mx-2">Home</a> / 
-		<a href="" class="mx-2">Accessories</a> / 
-		<a href="" class="mx-2">Socks</a> / 
+		<a href="<?php echo base_url('') ?>" class="mx-2">Store</a> / 
+		<!-- <a href="" class="mx-2">Accessories</a> / 
+		<a href="" class="mx-2">Socks</a> /  -->
 		<span class="mx-2 text-dark"><?php echo $product->name ?></span>
 	</div>
 </div>
