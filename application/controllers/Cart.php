@@ -30,6 +30,16 @@ class Cart extends MY_Controller {
 		}
 	}
 
+	public function remove()
+	{
+		$this->form_validation->set_rules('sku_id', 'SKU', 'required');
+
+		if ($this->form_validation->run() !== FALSE) {
+			$cart_id = $this->cart_model->remove($this->session->session_id, $this->input->post('sku_id'));
+		}
+		redirect('cart');
+	}
+
 	public function view() 
 	{
 		$items = $this->cart_model->get();

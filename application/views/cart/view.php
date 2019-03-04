@@ -19,7 +19,12 @@
 				<td><?php echo $item->name ?></td>
 				<td class="text-center"><?php echo $item->quantity ?></td>
 				<td class="text-right">$<?php echo number_format($item->price / 100, 2) ?></td>
-				<td class="text-center"><form><input type="submit" name="remove" value="Remove" class="btn btn-secondary btn-sm"></form></td>
+				<td class="text-center">
+					<form method="post" action="<?php echo base_url('cart/remove') ?>">
+						<input type="hidden" name="sku_id" value="<?php echo $item->sku_id ?>">
+						<input type="submit" name="remove" value="Remove" class="btn btn-secondary btn-sm">
+					</form>
+				</td>
 			</tr>
 		<?php endforeach ?>
 		<tr>	

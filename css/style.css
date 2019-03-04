@@ -147,4 +147,5 @@ header .jam-shopping-cart {
 .lightSlider img, 
 #imageGallery img {
     max-width: 540px;
+    min-width: 540px;
 }

@@ -32,6 +32,13 @@ class Cart_model extends CI_Model {
         }
     }
 
+    public function remove($session_id, $sku_id) {
+        $this->db->where('session_id', $session_id);
+        $this->db->where('sku_id', $sku_id);
+        $this->db->delete('cart');
+        $this->add_cart_count(-1);
+    }
+
     public function in_cart($session_id, $sku_id) {
         if ($session_id) {
             $session_id = $this->session->session_id;
