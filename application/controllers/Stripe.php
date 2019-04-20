@@ -7,13 +7,17 @@ class Stripe extends MY_Controller {
 	{
 		$skus = $this->skus_model->fetch_from_stripe();
 		$products = $this->products_model->fetch_from_stripe();
+		var_dump("SYNCING SKUS");
 		foreach ($skus['data'] as $index => $stripe_sku) {
 			$sku = $this->skus_model->get($stripe_sku->id);
 			$this->update_or_add_sku($sku, $stripe_sku);
+			var_dump($sku);
 		}
+		var_dump("SYNCING PRODUCTS");
 		foreach ($products['data'] as $index => $stripe_product) {
 			$product = $this->products_model->get($stripe_product->id);
 			$this->update_or_add_product($product, $stripe_product);
+			var_dump($product);
 		}
 	}
 

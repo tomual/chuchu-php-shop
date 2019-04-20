@@ -27,12 +27,17 @@
 				</td>
 			</tr>
 		<?php endforeach ?>
+		<?php if (!$items): ?>
+			<tr>
+				<td colspan="5" class="text-muted small p-5 text-center">You do not have any items in your cart. Click "Add to Cart" on an item to add an item to your cart.</td>
+			</tr>
+		<?php endif ?>
 		<tr>	
 			<td colspan="3" class="text-right"><b>Total</b></td>
 			<td class="text-right">$<?php echo number_format($total / 100, 2) ?></td>
 			<td></td>
 		</tr>
 	</table>
-	<a href="<?php echo base_url('checkout/form') ?>" class="btn btn-primary btn-lg">Checkout</a>
+	<a href="<?php echo base_url('checkout/form') ?>" class="btn btn-primary btn-lg <?php echo $items ? '' : 'disabled' ?>">Checkout</a>
 </div>
 <?php $this->load->view('footer') ?>

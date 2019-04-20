@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title><?php echo get_title() ? get_title() . ' | ' : '' ?>Site Title</title>
+    <title><?php echo get_title() ? get_title() . ' | ' : '' ?><?php echo $this->config->item('site_name') ?></title>
     <meta name="description" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
