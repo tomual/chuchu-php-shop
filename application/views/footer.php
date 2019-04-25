@@ -20,6 +20,7 @@
 		<script src="<?php echo base_url('js/vendor/lightgallery.js') ?>"></script>
 		<script src="<?php echo base_url('js/vendor/lightslider.js') ?>"></script>
 		<script type="text/javascript">
+			var base_url = '<?php echo base_url() ?>';
 			$(document).ready(function() {
 			    $('#imageGallery').lightSlider({
 			        gallery:true,

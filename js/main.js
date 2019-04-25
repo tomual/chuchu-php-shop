@@ -29,6 +29,12 @@ $('.product-card .btn').on('click', function (event) {
 	}
 	if (action == 'cart') {
 		console.log('CART ' + id);
+		var item = { sku_id: id };
+		$.ajax({
+			type: "POST",
+			url: base_url + '/cart/add',
+			data: item,
+		});
 	}
 	event.preventDefault();
 })

@@ -8,7 +8,7 @@
 	<?php foreach ($products as $product): ?>
 		<div class="col-3 p-4">
 			<?php $url_title = strtolower(url_title($product->name)) ?>
-			<a class="card product-card" href="<?php echo base_url("products/$url_title/{$product->id}") ?>" data-id="<?php echo $product->id ?>">
+			<a class="card product-card" href="<?php echo base_url("products/$url_title/{$product->id}") ?>" data-id="<?php echo $product->display_sku ?>">
 				<img class="card-img-top" src="<?php echo $product->image ?>" alt="Card image cap">
 				<div class="card-img-overlay">
 					<div class="btn btn-secondary" data-action="cart"><div class="jam jam-shopping-cart"></div></div>

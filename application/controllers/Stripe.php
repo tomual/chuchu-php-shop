@@ -5,25 +5,30 @@ class Stripe extends MY_Controller {
 
 	public function sync()
 	{
+		echo "<pre>";
 		$skus = $this->skus_model->fetch_from_stripe();
 		$products = $this->products_model->fetch_from_stripe();
-		var_dump("SYNCING SKUS");
+		print_r("SYNCING SKUS ----------------------------------------\n\n");
 		foreach ($skus['data'] as $index => $stripe_sku) {
 			$sku = $this->skus_model->get($stripe_sku->id);
 			$this->update_or_add_sku($sku, $stripe_sku);
-			var_dump($sku);
+			print_r($sku->id);
+			print_r("\n");
 		}
-		var_dump("SYNCING PRODUCTS");
+		print_r("\n");
+		print_r("SYNCING PRODUCTS -------------------------------------\n\n");
 		foreach ($products['data'] as $index => $stripe_product) {
 			$product = $this->products_model->get($stripe_product->id);
 			$this->update_or_add_product($product, $stripe_product);
-			var_dump($product);
+			print_r($product->id);
+			print_r(" - ");
+			print_r($product->name);
+			print_r("\n");
 		}
 	}
 
 	private function update_or_add_product($product, $stripe_product) 
 	{
-		pretty_print($product);
 		if ($product) {
 			if ($product->updated != $stripe_product->updated) {
 				$data = array(
