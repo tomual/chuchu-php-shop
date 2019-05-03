@@ -95,6 +95,19 @@ header .jam-shopping-cart {
     border-radius: 0;
 }
 
+.product-card .btn.active {
+    background: #303534;
+    color: #FFF;
+    border: 0;
+    box-shadow: 2px 2px #3035342b;
+    border-radius: 0;
+}
+
+.add-to-cart .jam-check {
+    position: absolute;
+    top: 20px;
+}
+
 .card-img-overlay {
     bottom: auto;
     left: auto;

@@ -36,5 +36,6 @@ $('.product-card .btn').on('click', function (event) {
 			data: item,
 		});
 	}
+	$(event.target).closest('.btn-secondary').addClass('active');
 	event.preventDefault();
 })
