@@ -11,7 +11,12 @@
 			<a class="card product-card" href="<?php echo base_url("products/$url_title/{$product->id}") ?>" data-id="<?php echo $product->display_sku ?>">
 				<img class="card-img-top" src="<?php echo $product->image ?>" alt="Card image cap">
 				<div class="card-img-overlay">
-					<div class="btn btn-secondary add-to-cart" data-action="cart"><div class="jam jam-shopping-cart"></div><div class="jam jam-check"></div></div>
+					<div class="btn btn-secondary add-to-cart <?php echo in_cart($product->display_sku) ? 'active' : '' ?>" data-action="cart">
+						<div class="jam jam-shopping-cart"></div>
+						<?php if (in_cart($product->display_sku)): ?>
+							<div class="jam jam-check"></div>
+						<?php endif ?>
+					</div>
 					<!-- <div class="btn btn-secondary" data-action="save"><div class="jam jam-star-full"></div></div> -->
 				</div>
 				<div class="card-body">

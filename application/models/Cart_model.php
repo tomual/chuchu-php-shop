@@ -30,6 +30,7 @@ class Cart_model extends CI_Model {
             $this->db->where('sku_id', $sku_id);
             $this->db->update('cart', $item);
         }
+        $this->update_session_cart();
     }
 
     public function remove($session_id, $sku_id) {
@@ -37,6 +38,7 @@ class Cart_model extends CI_Model {
         $this->db->where('sku_id', $sku_id);
         $this->db->delete('cart');
         $this->add_cart_count(-1);
+        $this->update_session_cart();
     }
 
     public function in_cart($session_id, $sku_id) {
@@ -59,5 +61,10 @@ class Cart_model extends CI_Model {
         } else {
             $this->session->set_userdata('cart_count', 1);
         }
+    }
+
+    public function update_session_cart()
+    {
+        $this->session->set_userdata('cart', $this->get());
     }
 }

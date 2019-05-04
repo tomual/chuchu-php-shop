@@ -37,5 +37,11 @@ $('.product-card .btn').on('click', function (event) {
 		});
 	}
 	$(event.target).closest('.btn-secondary').addClass('active');
+	$(event.target).closest('.btn-secondary').append('<div class="jam jam-check"></div>');
+	if ($('header .cart-badge').length) {
+		$('header .cart-badge').text(parseInt($('header .cart-badge').text()) + 1);
+	} else {
+		$('header .header-nav').append('<span class="badge badge-pill badge-danger cart-badge">1</span>');
+	}
 	event.preventDefault();
 })

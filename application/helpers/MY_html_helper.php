@@ -29,7 +29,7 @@ function cart_count_badge() {
     $ci =& get_instance();
     $cart_count = $ci->session->userdata('cart_count');
     if ($cart_count) {
-        return '<span class="badge badge-pill badge-danger cart-badge">' . $cart_count . '</span>';
+        return '<a href="' .  . '"><span class="badge badge-pill badge-danger cart-badge">' . $cart_count . '</span>';
     }
 }
 
